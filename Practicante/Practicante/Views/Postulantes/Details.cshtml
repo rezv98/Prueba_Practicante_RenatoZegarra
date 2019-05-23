@@ -1,0 +1,154 @@
+﻿@model Practicante.Models.Postulante
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout_CRUD.cshtml";
+}
+
+<h2>Detalles del Postulante</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nombre
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+           Apellido Paterno
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.apellidoPaterno)
+        </dd>
+
+        <dt>
+            Apellido Materno
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.apellidoMaterno)
+        </dd>
+
+        <dt>
+            Fecha de Nacimiento
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecNacimiento)
+        </dd>
+
+        <dt>
+           Edad
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.edad)
+        </dd>
+
+        <dt>
+            Numero de Documento
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numDoc)
+        </dd>
+
+        <dt>
+            Telefono
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono)
+        </dd>
+
+        <dt>
+            Celular
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.celular)
+        </dd>
+
+        <dt>
+            Pais
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pais)
+        </dd>
+
+        <dt>
+            Direccion
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.direccion)
+        </dd>
+
+        <dt>
+            Correo
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.correo)
+        </dd>
+
+        <dt>
+            Carrera
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Carrera.descripcion)
+        </dd>
+
+        <dt>
+            Ciudad
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ciudad.descripcion)
+        </dd>
+
+        <dt>
+            Estado Civil
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EstadoCivil.descripcion)
+        </dd>
+
+        <dt>
+            Estudios
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estudio.descripcion)
+        </dd>
+
+        <dt>
+            Genero
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Genero.descripcion)
+        </dd>
+
+        <dt>
+            Tipo de Documento
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoDoc.tipoDocumento)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Volver a la lista", "Index")
+</p>

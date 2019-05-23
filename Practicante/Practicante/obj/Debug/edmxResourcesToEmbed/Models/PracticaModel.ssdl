@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PracticaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Carrera">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ciudad">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EstadoCivil">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Estudios">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Genero">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Postulante">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="apellidoPaterno" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="apellidoMaterno" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="idGenero" Type="int" Nullable="false" />
+    <Property Name="idEstadoCivil" Type="int" Nullable="false" />
+    <Property Name="fecNacimiento" Type="date" Nullable="false" />
+    <Property Name="edad" Type="int" Nullable="false" />
+    <Property Name="idTipoDoc" Type="int" Nullable="false" />
+    <Property Name="numDoc" Type="bigint" Nullable="false" />
+    <Property Name="telefono" Type="bigint" Nullable="false" />
+    <Property Name="celular" Type="bigint" Nullable="false" />
+    <Property Name="pais" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="idciudad" Type="int" Nullable="false" />
+    <Property Name="direccion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="correo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="idestudios" Type="int" Nullable="false" />
+    <Property Name="idcarrera" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TipoDoc">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipoDocumento" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Postulante_Carrera">
+    <End Role="Carrera" Type="Self.Carrera" Multiplicity="1" />
+    <End Role="Postulante" Type="Self.Postulante" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Carrera">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Postulante">
+        <PropertyRef Name="idcarrera" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Postulante_Ciudad">
+    <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="1" />
+    <End Role="Postulante" Type="Self.Postulante" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ciudad">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Postulante">
+        <PropertyRef Name="idciudad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Postulante_EstadoCivil">
+    <End Role="EstadoCivil" Type="Self.EstadoCivil" Multiplicity="1" />
+    <End Role="Postulante" Type="Self.Postulante" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EstadoCivil">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Postulante">
+        <PropertyRef Name="idEstadoCivil" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Postulante_Estudios">
+    <End Role="Estudios" Type="Self.Estudios" Multiplicity="1" />
+    <End Role="Postulante" Type="Self.Postulante" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estudios">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Postulante">
+        <PropertyRef Name="idestudios" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Postulante_Genero">
+    <End Role="Genero" Type="Self.Genero" Multiplicity="1" />
+    <End Role="Postulante" Type="Self.Postulante" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Genero">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Postulante">
+        <PropertyRef Name="idGenero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Postulante_TipoDoc">
+    <End Role="TipoDoc" Type="Self.TipoDoc" Multiplicity="1" />
+    <End Role="Postulante" Type="Self.Postulante" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoDoc">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Postulante">
+        <PropertyRef Name="idTipoDoc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PracticaModelStoreContainer">
+    <EntitySet Name="Carrera" EntityType="Self.Carrera" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ciudad" EntityType="Self.Ciudad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EstadoCivil" EntityType="Self.EstadoCivil" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Estudios" EntityType="Self.Estudios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Genero" EntityType="Self.Genero" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Postulante" EntityType="Self.Postulante" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoDoc" EntityType="Self.TipoDoc" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Postulante_Carrera" Association="Self.FK_Postulante_Carrera">
+      <End Role="Carrera" EntitySet="Carrera" />
+      <End Role="Postulante" EntitySet="Postulante" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Postulante_Ciudad" Association="Self.FK_Postulante_Ciudad">
+      <End Role="Ciudad" EntitySet="Ciudad" />
+      <End Role="Postulante" EntitySet="Postulante" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Postulante_EstadoCivil" Association="Self.FK_Postulante_EstadoCivil">
+      <End Role="EstadoCivil" EntitySet="EstadoCivil" />
+      <End Role="Postulante" EntitySet="Postulante" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Postulante_Estudios" Association="Self.FK_Postulante_Estudios">
+      <End Role="Estudios" EntitySet="Estudios" />
+      <End Role="Postulante" EntitySet="Postulante" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Postulante_Genero" Association="Self.FK_Postulante_Genero">
+      <End Role="Genero" EntitySet="Genero" />
+      <End Role="Postulante" EntitySet="Postulante" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Postulante_TipoDoc" Association="Self.FK_Postulante_TipoDoc">
+      <End Role="TipoDoc" EntitySet="TipoDoc" />
+      <End Role="Postulante" EntitySet="Postulante" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c5eadd861dbf47f6a7e49582cdf90d1a" Name="Diagram1">
+        <EntityTypeShape EntityType="PracticaModel.Carrera" Width="1.5" PointX="0.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PracticaModel.Ciudad" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PracticaModel.EstadoCivil" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PracticaModel.Estudio" Width="1.5" PointX="0.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="PracticaModel.Genero" Width="1.5" PointX="0.75" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PracticaModel.Postulante" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PracticaModel.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PracticaModel.TipoDoc" Width="1.5" PointX="0.75" PointY="15.625" IsExpanded="true" />
+        <AssociationConnector Association="PracticaModel.FK_Postulante_Carrera" ManuallyRouted="false" />
+        <AssociationConnector Association="PracticaModel.FK_Postulante_Ciudad" ManuallyRouted="false" />
+        <AssociationConnector Association="PracticaModel.FK_Postulante_EstadoCivil" ManuallyRouted="false" />
+        <AssociationConnector Association="PracticaModel.FK_Postulante_Estudios" ManuallyRouted="false" />
+        <AssociationConnector Association="PracticaModel.FK_Postulante_Genero" ManuallyRouted="false" />
+        <AssociationConnector Association="PracticaModel.FK_Postulante_TipoDoc" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
